@@ -1,0 +1,23 @@
+.main {
+   margin: auto;
+   border: 1px solid #000000;
+   width: 50%;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 20px 1fr;
+}
+.container {
+    text-align: center;
+    border: 1px solid black;
+    margin: 1px;
+}
+.notmain {
+    border: 1px solid #000000;
+    margin: auto;
+    width: 50%;
+}
+.img {
+    margin: auto;
+    padding: auto;
+    width: 50%;
+}
