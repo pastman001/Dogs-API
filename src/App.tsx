@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./style.css";
+import React, { useEffect, useState } from 'react';
+import './style.css';
 
 export const App = () => {
-  let [imgUrl, setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState('');
 
-  const sendRequest = (breedName) => {
+  const sendRequest = (breedName: string) => {
     let url = `https://dog.ceo/api/breed/${breedName}/images/random`;
-    if (breedName === "") {
-      url = "https://dog.ceo/api/breeds/image/random";
+    if (breedName === '') {
+      url = 'https://dog.ceo/api/breeds/image/random';
     }
     return fetch(url)
       .then((response) => response.json())
-      .then((result) => setImgUrl((imgUrl = result.message)));
+      .then((result) => setImgUrl(result.message));
   };
 
   useEffect(() => {
-    sendRequest("");
+    sendRequest('');
   }, []);
 
   return (
@@ -24,54 +24,42 @@ export const App = () => {
         <div>
           <button
             onClick={() => {
-              sendRequest("akita");
+              sendRequest('akita');
             }}
           >
             Akita
           </button>
           <button
             onClick={() => {
-              sendRequest("chow");
+              sendRequest('chow');
             }}
           >
             Chow
           </button>
           <button
             onClick={() => {
-              sendRequest("boxer");
+              sendRequest('boxer');
             }}
           >
             Boxer
           </button>
           <button
             onClick={() => {
-              sendRequest("husky");
+              sendRequest('husky');
             }}
           >
             Husky
           </button>
           <button
             onClick={() => {
-              sendRequest("mix");
+              sendRequest('mix');
             }}
           >
             Mix
           </button>
         </div>
-        <div>
-          {imgUrl && <img className="img" src={imgUrl} alt="123"></img>}
-        </div>
+        <div>{imgUrl && <img className="img" src={imgUrl} alt="123"></img>}</div>
       </div>
     </>
   );
 };
-{()=>{
-  let delay = 0;
-  const jobs = document.querySelectorAll(".vacancy-serp-item__layout a.bloko-button");
-  jobs.forEach(job =>{
-    setTimeout{()=>{
-      job.click();
-    },delay}
-    delay+=2000
-  })
-}}();
